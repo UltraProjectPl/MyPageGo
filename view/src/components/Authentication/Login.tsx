@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import { LoginSchema } from '../../store/authentication/types';
 import { useDispatch } from '../../hooks/useDispatch';
 import { AuthenticationActions } from '../../store/authentication/actions';
@@ -9,6 +10,7 @@ export const Login: React.FC = () => {
     const [password, setPassword] = useState<string>('');
 
     const dispatch = useDispatch();
+    const { t } = useTranslation();
 
     const formik = useFormik({
         initialValues: {
@@ -25,24 +27,24 @@ export const Login: React.FC = () => {
         <div>
             <form onSubmit={formik.handleSubmit}>
                 <div>
-                    <label htmlFor="login">Login</label>
+                    <label htmlFor="login">{t('security.login')}</label>
                     <input
                         type="text"
                         id="login"
                         name="login"
-                        placeholder="Login"
+                        placeholder={t('security.login') + '...'}
                         onChange={formik.handleChange}
                         value={formik.values.login}
                     />
                     {formik.errors.login}
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">{t('security.password')}</label>
                     <input
                         type="password"
                         id="password"
                         name="password"
-                        placeholder="Password"
+                        placeholder={t('security.password') + '...'}
                         onChange={formik.handleChange}
                         value={formik.values.password}
                     />

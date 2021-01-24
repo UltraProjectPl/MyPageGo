@@ -6,6 +6,7 @@ import { App } from './components/App/App';
 import { createBrowserHistory } from 'history';
 import { Header } from './components/App/Header';
 import createStore from './store/createStore';
+import './i18n';
 
 const history = createBrowserHistory();
 const store = createStore()
