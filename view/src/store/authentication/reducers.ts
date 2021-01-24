@@ -15,7 +15,6 @@ export const authenticationReducer: Reducer<
     switch (action.type) {
         case AuthenticationActionTypes.LOGIN: {
             const payload = action.payload;
-            console.log(payload);
 
             return state;
         }

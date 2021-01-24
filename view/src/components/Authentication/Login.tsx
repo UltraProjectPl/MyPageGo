@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { LoginSchema } from '../../store/authentication/types';
+import { useDispatch } from '../../hooks/useDispatch';
+import { AuthenticationActions } from '../../store/authentication/actions';
 
 export const Login: React.FC = () => {
     const [login, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+
+    const dispatch = useDispatch();
 
     const formik = useFormik({
         initialValues: {
@@ -13,7 +17,7 @@ export const Login: React.FC = () => {
         },
         validationSchema: LoginSchema,
         onSubmit: values => {
-            console.log(values);
+            dispatch(AuthenticationActions.login(values));
         }
     })
 
