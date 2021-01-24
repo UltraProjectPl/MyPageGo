@@ -13,5 +13,5 @@ export default (initialState: Partial<ApplicationState> = {}) => {
                 thunk as ThunkMiddleware<ApplicationState, ApplicationAction>
             ),
         ),
-    ) as Store<ApplicationState>
+    )
 }
